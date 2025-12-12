@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/core.Package/">
+    <Project Path="src/core.Package/Core.Persistence/Core.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/src/LedgerProject/">
+    <Project Path="src/LedgerProject/Application/Application.csproj" />
+    <Project Path="src/LedgerProject/Domain/Domain.csproj" />
+    <Project Path="src/LedgerProject/Infrastructure/Infrastructure.csproj" />
+    <Project Path="src/LedgerProject/Persistence/Persistence.csproj" />
+    <Project Path="src/LedgerProject/WebApi/WebApi.csproj" />
+  </Folder>
+</Solution>
