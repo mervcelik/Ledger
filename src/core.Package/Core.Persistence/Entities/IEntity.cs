@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Persistence.Repositories;
+namespace Core.Persistence.Entities;
 
 public interface IEntity
 {

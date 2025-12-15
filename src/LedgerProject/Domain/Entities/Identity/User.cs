@@ -1,4 +1,4 @@
-﻿using Core.Persistence.Repositories;
+﻿using Core.Persistence.Entities;
 using Domain.Entities.Corp;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ public class User:Entity
     public string Email { get; set; }
     public byte[] PasswordSalt { get; set; }
     public byte[] PasswordHash { get; set; }
-
+    public bool Status { get; set; }
 
     public virtual List<UserOperationClaim>? UserOperationClaims { get; set; }
     public virtual List<UserSession>? UserSessions { get; set; }

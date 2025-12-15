@@ -2,6 +2,7 @@
   <Folder Name="/src/" />
   <Folder Name="/src/core.Package/">
     <Project Path="src/core.Package/Core.Persistence/Core.Persistence.csproj" />
+    <Project Path="src/core.Package/Core.Security/Core.Security.csproj" Id="1e7ec95a-a3bd-4360-80e3-8be72a866790" />
   </Folder>
   <Folder Name="/src/LedgerProject/">
     <Project Path="src/LedgerProject/Application/Application.csproj" />

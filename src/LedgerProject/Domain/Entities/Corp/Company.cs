@@ -1,4 +1,4 @@
-﻿using Core.Persistence.Repositories;
+﻿using Core.Persistence.Entities;
 using Domain.Entities.Finance;
 using System;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ public class Company : Entity
     public string? PhoneNumber { get; set; }
     public virtual List<CompanyUser>? CompanyUsers { get; set; }
     public virtual List<AccountingPeriod>? AccountingPeriods { get; set; }
-    public virtual List<CurrentAccount>? CurrentAccount { get; set; }
+    public virtual List<CurrentAccount>? CurrentAccounts { get; set; }
     public virtual List<CurrentMovement>? CurrentMovements { get; set; }
+    public virtual List<MovementType>? MovementTypes { get; set; }
 }

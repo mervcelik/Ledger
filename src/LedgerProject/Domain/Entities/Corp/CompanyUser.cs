@@ -1,8 +1,9 @@
-﻿using Domain.Entities.Identity;
+﻿using Core.Persistence.Entities;
+using Domain.Entities.Identity;
 
 namespace Domain.Entities.Corp;
 
-public class CompanyUser
+public class CompanyUser: Entity
 {
     public int UserId { get; set; }
     public virtual User? User { get; set; }

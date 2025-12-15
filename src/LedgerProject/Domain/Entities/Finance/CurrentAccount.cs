@@ -1,17 +1,15 @@
 ﻿using Core.Persistence.Entities;
 using Domain.Entities.Corp;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Domain.Entities.Finance;
 
-public class AccountingPeriod : Entity
+public class CurrentAccount: Entity
 {
     public string Name { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public bool IsClosed { get; set; }
+    public string TaxNumber { get; set; }
+    public string? Email { get; set; }
+    public string? Address { get; set; }
+    public string? Phone { get; set; }
     public int CompanyId { get; set; }
     public virtual Company? Company { get; set; }
     public virtual List<CurrentMovement>? CurrentMovements { get; set; }
