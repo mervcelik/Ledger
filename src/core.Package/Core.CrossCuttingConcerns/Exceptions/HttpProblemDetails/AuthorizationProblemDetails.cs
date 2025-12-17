@@ -1,0 +1,19 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Text;
+
+namespace Core.CrossCuttingConcerns.Exceptions.HttpProblemDetails;
+
+public class AuthorizationProblemDetails : ProblemDetails
+{
+    public AuthorizationProblemDetails(string detail)
+    {
+        Title = "Authorization Violation";
+        Detail = detail;
+        Status = StatusCodes.Status401Unauthorized;
+        Type = "https://Example.com/probs/business";
+    }
+}
