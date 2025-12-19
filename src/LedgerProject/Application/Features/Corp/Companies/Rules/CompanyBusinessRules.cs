@@ -26,4 +26,13 @@ public class CompanyBusinessRules
             throw new BusinessException(_localizationService.Get(CompanyMessages.CompanyNotUnique));
         }
     }
+
+    internal async Task CompanyNameMustBeUniqueWhenUpdating(int? id, string name)
+    {
+        var existingCompany = await _companyRepository.GetAsync(c => c.Name == name && c.Id!= id);
+        if (existingCompany != null)
+        {
+            throw new BusinessException(_localizationService.Get(CompanyMessages.CompanyNotUnique));
+        }
+    }
 }

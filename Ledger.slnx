@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/core.Package/">
+    <Project Path="src/core.Package/Core.Application/Core.Application.csproj" Id="936e7bd5-8892-468f-97b1-7946fb319c54" />
     <Project Path="src/core.Package/Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj" Id="04b65df8-d061-46ec-92eb-474406e31f7f" />
     <Project Path="src/core.Package/Core.Persistence/Core.Persistence.csproj" />
     <Project Path="src/core.Package/Core.Security/Core.Security.csproj" Id="1e7ec95a-a3bd-4360-80e3-8be72a866790" />
