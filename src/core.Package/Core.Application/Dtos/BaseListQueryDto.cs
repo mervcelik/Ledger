@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Core.Application.Dtos;
 
-public class BaseListQueryDto
+public class BaseListQueryDto:PageRequest
 {
-    public PageRequest PageRequest { get; set; }
 }
