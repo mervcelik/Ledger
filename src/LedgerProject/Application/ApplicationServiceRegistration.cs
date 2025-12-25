@@ -1,4 +1,6 @@
 ﻿using Application.Features.Corp.Companies.Rules;
+using Application.Features.Finance.AccountingPeriods.Rules;
+using Core.Application.Piplines.Validation;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,11 +16,14 @@ public static class ApplicationServiceRegistration
     {
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
         services.AddTransient<CompanyBusinessRules>();
+        services.AddTransient<AccountingPeriodRules>();
 
         services.AddMediatR(configuration =>
         {
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+            configuration.AddOpenBehavior(typeof(RequestValidationBehavior<,>));
         });
         return services;
     }

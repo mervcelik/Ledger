@@ -44,14 +44,14 @@ public class BaseHandlerManager<T> where T : Entity
 
     public async Task<TResponse> UpdateAsync<TResponse>(BaseCommandDto dto, CancellationToken cancellationToken)
     {
-        var entity = await _repository.GetAsync(predicate: b => b.Id == dto.Id, cancellationToken: cancellationToken);
-        entity = _mapper.Map<T>(dto);
+        var entity = await _repository.GetAsync(predicate: b => b.Id == dto.Id, cancellationToken: cancellationToken,enableTracking:false);
+        _mapper.Map(dto, entity);
         await _repository.UpdateAsync(entity);
         TResponse response = _mapper.Map<TResponse>(entity);
         return response;
     }
 
-    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, bool withDeleted = false, bool enableTracking = true, CancellationToken cancellationToken = default)
+    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         Paginate<T> entites = await _repository.GetListAsync(predicate: predicate,
                                                              orderBy: orderBy,
@@ -66,7 +66,7 @@ public class BaseHandlerManager<T> where T : Entity
         return response;
     }
 
-    public async Task<TResponse> GetAsync<TResponse>(bool withDeleted = false, bool enableTracking = true, CancellationToken cancellationToken = default)
+    public async Task<TResponse> GetAsync<TResponse>(bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         var entity = await _repository.GetAsync(predicate, include, withDeleted, enableTracking, cancellationToken);
         TResponse response = _mapper.Map<TResponse>(entity);

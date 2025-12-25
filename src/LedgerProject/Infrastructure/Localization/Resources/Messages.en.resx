@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AP.CompanyIdGreaterThanZero" xml:space="preserve">
+    <value>Select a Company!</value>
+  </data>
+  <data name="AP.EndDateLessThanStartDate" xml:space="preserve">
+    <value>The end date cannot be earlier than the start date.</value>
+  </data>
+  <data name="AP.StartDateGraterThanEndDate" xml:space="preserve">
+    <value>The start date cannot be greater than the end date.</value>
+  </data>
+  <data name="AP.NameNotNull" xml:space="preserve">
+    <value>Accounting period Name can not be empty</value>
+  </data>
+  <data name="Company.NameLenght" xml:space="preserve">
+    <value>The company name must be more than 3 characters long.</value>
+  </data>
+  <data name="Company.NameNotEmpty" xml:space="preserve">
+    <value>Company name can not be empty</value>
+  </data>
   <data name="Company.NotUnique" xml:space="preserve">
     <value>Company name must be unique.</value>
+  </data>
+  <data name="AP.DateRangeMustNotOverlap" xml:space="preserve">
+    <value>The accounting period date range overlaps with an existing period.</value>
+  </data>
+  <data name="AP.NameNotUniqie" xml:space="preserve">
+    <value>The accounting period Name must be unique.</value>
   </data>
 </root>

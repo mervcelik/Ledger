@@ -7,10 +7,8 @@ using Core.Application.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers;
+namespace WebApi.Controllers.Corp;
 
-[Route("api/[controller]")]
-[ApiController]
 public class CompaniesController: BaseController
 {
     [HttpPost]

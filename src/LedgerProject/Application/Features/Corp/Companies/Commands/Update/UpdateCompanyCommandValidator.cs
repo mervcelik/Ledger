@@ -5,13 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Application.Features.Corp.Companies.Commands.Create;
+namespace Application.Features.Corp.Companies.Commands.Update;
 
-public class CreateCompanyCommandValidator : AbstractValidator<CreateCompanyCommand>
+public class UpdateCompanyCommandValidator:AbstractValidator<UpdateCompanyCommand>
 {
-    public CreateCompanyCommandValidator()
+    public UpdateCompanyCommandValidator()
     {
         RuleFor(c => c.Name).NotEmpty().WithMessage(LH.Get(CompanyMessages.CompanyNameNotEmpty));
-        RuleFor(c => c.Name).MaximumLength(3).WithMessage(LH.Get(CompanyMessages.CompanyNameLenght));
+        RuleFor(c => c.Name).MinimumLength(3).WithMessage(LH.Get(CompanyMessages.CompanyNameLenght));
     }
 }

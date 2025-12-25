@@ -7,6 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Auth\Commands\**" />
+    <Compile Remove="Features\Auth\Constans\**" />
+    <Compile Remove="Features\Auth\Profiles\**" />
+    <Compile Remove="Features\Auth\Queries\**" />
+    <Compile Remove="Features\Auth\Rules\**" />
+    <EmbeddedResource Remove="Features\Auth\Commands\**" />
+    <EmbeddedResource Remove="Features\Auth\Constans\**" />
+    <EmbeddedResource Remove="Features\Auth\Profiles\**" />
+    <EmbeddedResource Remove="Features\Auth\Queries\**" />
+    <EmbeddedResource Remove="Features\Auth\Rules\**" />
+    <None Remove="Features\Auth\Commands\**" />
+    <None Remove="Features\Auth\Constans\**" />
+    <None Remove="Features\Auth\Profiles\**" />
+    <None Remove="Features\Auth\Queries\**" />
+    <None Remove="Features\Auth\Rules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\Auth\Commands\Login\LoggedResponse.cs" />
+    <Compile Include="Features\Auth\Commands\Login\LoginCommand.cs" />
+    <Compile Include="Features\Auth\Commands\Login\LoginCommandValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\core.Package\Core.Application\Core.Application.csproj" />
     <ProjectReference Include="..\..\core.Package\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj" />
     <ProjectReference Include="..\..\core.Package\Core.Persistence\Core.Persistence.csproj" />
@@ -14,9 +38,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Corp\CompanyUsers\" />
-    <Folder Include="Features\Finance\" />
-    <Folder Include="Features\Identity\" />
+    <Folder Include="Features\Identity\Users\Commands\Create\" />
+    <Folder Include="Features\Identity\Users\Commands\Delete\" />
+    <Folder Include="Features\Identity\Users\Commands\Update\" />
+    <Folder Include="Features\Identity\Users\Constans\" />
+    <Folder Include="Features\Identity\Users\Profiles\" />
+    <Folder Include="Features\Identity\Users\Queries\" />
+    <Folder Include="Features\Identity\Users\Rules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Services\Localization\LH.cs" />
   </ItemGroup>
 
   <ItemGroup>
