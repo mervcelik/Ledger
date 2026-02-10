@@ -144,4 +144,16 @@
   <data name="AP.NameNotUniqie" xml:space="preserve">
     <value>Muhasebe dönemi adı benzersiz olmalıdır.</value>
   </data>
+  <data name="CA.NameCanNotBeDuplicated" xml:space="preserve">
+    <value>Aynı isimde bir cari kaydı mevcut</value>
+  </data>
+  <data name="CA.NameNotNull" xml:space="preserve">
+    <value>Cari İsmi boş olmamalıdır.</value>
+  </data>
+  <data name="CA.TaxNumberNotNull" xml:space="preserve">
+    <value>Cari vergi numarası boş olmamalıdır.</value>
+  </data>
+  <data name="CA.CompanyIdNotNull" xml:space="preserve">
+    <value>Şirket seçiniz</value>
+  </data>
 </root>

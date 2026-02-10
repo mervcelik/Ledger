@@ -144,4 +144,16 @@
   <data name="AP.NameNotUniqie" xml:space="preserve">
     <value>The accounting period Name must be unique.</value>
   </data>
+  <data name="CA.NameCanNotBeDuplicated" xml:space="preserve">
+    <value>A current  registration with the same name already exists.</value>
+  </data>
+  <data name="CA.NameNotNull" xml:space="preserve">
+    <value>The current name can not be empty</value>
+  </data>
+  <data name="CA.TaxNumberNotNull" xml:space="preserve">
+    <value>The Current Tax Number Can not be empty</value>
+  </data>
+  <data name="CA.CompanyIdNotNull" xml:space="preserve">
+    <value>Company must be select</value>
+  </data>
 </root>

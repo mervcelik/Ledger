@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Application.Features.Finance.CurrentAccounts.Constans;
 
-internal class CurrentAccountMessages
+public class CurrentAccountMessages
 {
+    public const string CANameCanNotBeDuplicated = "CA.NameCanNotBeDuplicated";
+    public const string CANameNotNull = "CA.NameNotNull";
+    public const string CATaxNumberNotNull = "CA.TaxNumberNotNull";
+    public const string CACompanyIdNotNull = "CA.CompanyIdNotNull";
 }
