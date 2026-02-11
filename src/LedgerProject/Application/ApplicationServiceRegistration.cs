@@ -1,5 +1,8 @@
 ﻿using Application.Features.Corp.Companies.Rules;
 using Application.Features.Finance.AccountingPeriods.Rules;
+using Application.Features.Finance.CurrentAccounts.Rules;
+using Application.Features.Finance.CurrentMovementDetails.Rules;
+using Application.Features.Finance.CurrentMovements.Rules;
 using Core.Application.Piplines.Validation;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +21,11 @@ public static class ApplicationServiceRegistration
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddTransient<CompanyBusinessRules>();
+
         services.AddTransient<AccountingPeriodRules>();
+        services.AddTransient<CurrentAccountRules>();
+        services.AddTransient<CurrentMovementRules>();
+        services.AddTransient<CurrentMovementDetailRules>();
 
         services.AddMediatR(configuration =>
         {

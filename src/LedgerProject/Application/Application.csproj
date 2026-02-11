@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Finance\CurrentMovements\Queries\" />
+    <Folder Include="Features\Finance\CurrentMovementDetails\Queries\" />
     <Folder Include="Features\Identity\Users\Commands\Create\" />
     <Folder Include="Features\Identity\Users\Commands\Delete\" />
     <Folder Include="Features\Identity\Users\Commands\Update\" />

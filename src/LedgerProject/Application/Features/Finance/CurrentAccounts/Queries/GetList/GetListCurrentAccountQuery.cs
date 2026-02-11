@@ -12,24 +12,24 @@ using System.Text;
 
 namespace Application.Features.Finance.CurrentAccounts.Queries.GetList;
 
-public class GetListCurrentAccountQuery : BaseListQueryDto, IRequest<GetListResponse<GetListCurrentAccountQuery>>
+public class GetListCurrentAccountQuery : BaseListQueryDto, IRequest<GetListResponse<GetListCurrentAccountResponse>>
 {
     public int? CompanyId { get; set; }
 }
 
-public class GetListCurrentAccountQueryHandler : BaseHandlerManager<CurrentAccount>, IRequestHandler<GetListCurrentAccountQuery, GetListResponse<GetListCurrentAccountQuery>>
+public class GetListCurrentAccountQueryHandler : BaseHandlerManager<CurrentAccount>, IRequestHandler<GetListCurrentAccountQuery, GetListResponse<GetListCurrentAccountResponse>>
 {
     public GetListCurrentAccountQueryHandler(ICurrentAccountRepository currentAccountRepository, IMapper mapper) :base(currentAccountRepository, mapper: mapper)
     {
 
     }
 
-    public async Task<GetListResponse<GetListCurrentAccountQuery>> Handle(GetListCurrentAccountQuery request, CancellationToken cancellationToken)
+    public async Task<GetListResponse<GetListCurrentAccountResponse>> Handle(GetListCurrentAccountQuery request, CancellationToken cancellationToken)
     {
         if (request.CompanyId != null)
         {
             predicate = predicate.And(f => f.CompanyId == request.CompanyId);
         }
-        return await GetListAsync<GetListCurrentAccountQuery>(request, cancellationToken: cancellationToken);
+        return await GetListAsync<GetListCurrentAccountResponse>(request, cancellationToken: cancellationToken);
     }
 }
