@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers.Finance;
 
-public class CurrentAccountController : BaseController
+public class CurrentAccountsController : BaseController
 {
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] CreateCurrentAccountCommand createCurrentAccountCommand)

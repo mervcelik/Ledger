@@ -4,6 +4,6 @@ using System.Text;
 
 namespace Application.Features.Finance.CurrentMovements.Rules;
 
-public class CurrentMovementRules
+public class CurrentMovementBusinessRules
 {
 }

@@ -4,6 +4,7 @@ using Core.Application.Dtos;
 using Core.Application.Managers;
 using Core.CrossCuttingConcerns.Extensions;
 using Domain.Entities.Corp;
+using Domain.Entities.Finance;
 using Domain.Entities.Identity;
 using MediatR;
 using System;
@@ -24,6 +25,7 @@ public class GetListCompanyQueryHandler : BaseHandlerManager<Company>, IRequestH
     }
     public async Task<GetListResponse<GetListCompanyResponse>> Handle(GetListCompanyQuery request, CancellationToken cancellationToken)
     {
+        Expression<Func<Company, bool>>? predicate = x => x.Id > 0;
         if (!string.IsNullOrEmpty(request.ContainsName))
         {
             predicate = predicate.And(x => x.Name.Contains(request.ContainsName));

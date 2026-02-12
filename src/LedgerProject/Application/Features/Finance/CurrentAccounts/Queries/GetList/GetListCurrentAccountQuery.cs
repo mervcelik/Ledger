@@ -6,8 +6,11 @@ using Core.Application.Managers;
 using Core.CrossCuttingConcerns.Extensions;
 using Domain.Entities.Finance;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Application.Features.Finance.CurrentAccounts.Queries.GetList;
@@ -26,10 +29,13 @@ public class GetListCurrentAccountQueryHandler : BaseHandlerManager<CurrentAccou
 
     public async Task<GetListResponse<GetListCurrentAccountResponse>> Handle(GetListCurrentAccountQuery request, CancellationToken cancellationToken)
     {
+        Expression<Func<CurrentAccount, bool>>? predicate = x=>x.Id>0;
         if (request.CompanyId != null)
         {
             predicate = predicate.And(f => f.CompanyId == request.CompanyId);
         }
-        return await GetListAsync<GetListCurrentAccountResponse>(request, cancellationToken: cancellationToken);
+
+        Func<IQueryable<CurrentAccount>, IIncludableQueryable<CurrentAccount, object>>? include = y => y.Include(x=>x.Company);
+        return await GetListAsync<GetListCurrentAccountResponse>(request,predicate, null,include, cancellationToken: cancellationToken);
     }
 }

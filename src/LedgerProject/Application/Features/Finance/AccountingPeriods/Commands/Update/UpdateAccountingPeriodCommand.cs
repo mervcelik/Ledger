@@ -21,8 +21,8 @@ public class UpdateAccountingPeriodCommand:BaseCommandDto,IRequest<UpdatedAccoun
 }
 public class UpdateAccountingPeriodCommandHandler:BaseHandlerManager<AccountingPeriod>,IRequestHandler<UpdateAccountingPeriodCommand, UpdatedAccountingPeriodResponse>
 {
-    AccountingPeriodRules _accountingPeriodRules;
-    public UpdateAccountingPeriodCommandHandler(IAccountingPeriodRepository accountingPeriodRepository,IMapper mapper,AccountingPeriodRules accountingPeriodRules):base(accountingPeriodRepository,mapper)
+    AccountingPeriodBusinessRules _accountingPeriodRules;
+    public UpdateAccountingPeriodCommandHandler(IAccountingPeriodRepository accountingPeriodRepository,IMapper mapper,AccountingPeriodBusinessRules accountingPeriodRules):base(accountingPeriodRepository,mapper)
     {
         _accountingPeriodRules=accountingPeriodRules;
     }

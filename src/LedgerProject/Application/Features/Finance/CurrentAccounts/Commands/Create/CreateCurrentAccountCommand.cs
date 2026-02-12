@@ -23,8 +23,8 @@ public class CreateCurrentAccountCommand : BaseCommandDto, IRequest<CreatedCurre
 
 public class CreateCurrentAccountCommandHandler : BaseHandlerManager<CurrentAccount>, IRequestHandler<CreateCurrentAccountCommand, CreatedCurrentAccountResponse>
 {
-    CurrentAccountRules _currentAccountRules;
-    public CreateCurrentAccountCommandHandler(ICurrentAccountRepository currentAccountRepository, IMapper mapper, CurrentAccountRules currentAccountRules) : base(currentAccountRepository, mapper)
+    CurrentAccountBusinessRules _currentAccountRules;
+    public CreateCurrentAccountCommandHandler(ICurrentAccountRepository currentAccountRepository, IMapper mapper, CurrentAccountBusinessRules currentAccountRules) : base(currentAccountRepository, mapper)
     {
         _currentAccountRules = currentAccountRules;
     }

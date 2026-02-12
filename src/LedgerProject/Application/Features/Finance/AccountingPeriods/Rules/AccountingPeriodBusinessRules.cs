@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Application.Features.Finance.AccountingPeriods.Rules;
 
-public class AccountingPeriodRules
+public class AccountingPeriodBusinessRules
 {
     IAccountingPeriodRepository _accountingPeriodRepository;
-    public AccountingPeriodRules(IAccountingPeriodRepository accountingPeriodRepository)
+    public AccountingPeriodBusinessRules(IAccountingPeriodRepository accountingPeriodRepository)
     {
         _accountingPeriodRepository = accountingPeriodRepository;
     }

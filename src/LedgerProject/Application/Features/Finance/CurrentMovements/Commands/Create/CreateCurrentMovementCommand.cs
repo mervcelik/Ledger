@@ -29,8 +29,8 @@ public class CreateCurrentMovementCommand:BaseCommandDto, IRequest<CreatedCurren
 }
 public class CreateCurrentMovementCommandHandler : BaseHandlerManager<CurrentMovement>, IRequestHandler<CreateCurrentMovementCommand, CreatedCurrentMovementResponse>
 {
-    CurrentMovementRules _currentMovementRules;
-    public CreateCurrentMovementCommandHandler(ICurrentMovementRepository currentMovementRepository, IMapper mapper, CurrentMovementRules currentMovementRules) : base(currentMovementRepository, mapper)
+    CurrentMovementBusinessRules _currentMovementRules;
+    public CreateCurrentMovementCommandHandler(ICurrentMovementRepository currentMovementRepository, IMapper mapper, CurrentMovementBusinessRules currentMovementRules) : base(currentMovementRepository, mapper)
     {
         _currentMovementRules = currentMovementRules;
     }

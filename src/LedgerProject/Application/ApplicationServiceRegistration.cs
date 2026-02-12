@@ -22,9 +22,9 @@ public static class ApplicationServiceRegistration
 
         services.AddTransient<CompanyBusinessRules>();
 
-        services.AddTransient<AccountingPeriodRules>();
-        services.AddTransient<CurrentAccountRules>();
-        services.AddTransient<CurrentMovementRules>();
+        services.AddTransient<AccountingPeriodBusinessRules>();
+        services.AddTransient<CurrentAccountBusinessRules>();
+        services.AddTransient<CurrentMovementBusinessRules>();
         services.AddTransient<CurrentMovementDetailRules>();
 
         services.AddMediatR(configuration =>

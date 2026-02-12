@@ -23,8 +23,8 @@ public class CreateAccountingPeriodCommand:BaseCommandDto,IRequest<CreatedAccoun
 
 public class CreateAccountingPeriodCommandHandler:BaseHandlerManager<AccountingPeriod>,IRequestHandler<CreateAccountingPeriodCommand, CreatedAccountingPeriodResponse>
 {
-    AccountingPeriodRules _accountingPeriodRules;
-    public CreateAccountingPeriodCommandHandler(IAccountingPeriodRepository accountingPeriodRepository,IMapper mapper,AccountingPeriodRules accountingPeriodRules):base(accountingPeriodRepository,mapper)
+    AccountingPeriodBusinessRules _accountingPeriodRules;
+    public CreateAccountingPeriodCommandHandler(IAccountingPeriodRepository accountingPeriodRepository,IMapper mapper,AccountingPeriodBusinessRules accountingPeriodRules):base(accountingPeriodRepository,mapper)
     {
         _accountingPeriodRules=accountingPeriodRules;
     }

@@ -7,6 +7,7 @@ using Domain.Entities.Finance;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using static Application.Features.Finance.AccountingPeriods.Queries.Get.GetAccountingPeriodQueryHandler;
 
@@ -22,10 +23,11 @@ public class GetAccountingPeriodQueryHandler : BaseHandlerManager<AccountingPeri
     }
     public async Task<GetAccountingPeriodResponse> Handle(GetAccountingPeriodQuery request, CancellationToken cancellationToken)
     {
+        Expression<Func<AccountingPeriod, bool>>? predicate = x => x.Id > 0;
         if (request.Id != null)
         {
             predicate = predicate.And(x => x.Id == request.Id);
         }
-        return await GetAsync<GetAccountingPeriodResponse>(cancellationToken: cancellationToken);
+        return await GetAsync<GetAccountingPeriodResponse>(predicate,cancellationToken: cancellationToken);
     }
 }

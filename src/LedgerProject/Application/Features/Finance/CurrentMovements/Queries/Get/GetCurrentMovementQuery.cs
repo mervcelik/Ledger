@@ -7,6 +7,7 @@ using Domain.Entities.Finance;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Application.Features.Finance.CurrentMovements.Queries.Get;
@@ -21,10 +22,11 @@ public class GetCurrentMovementQueryHandler : BaseHandlerManager<CurrentMovement
     }
     public async Task<GetCurrentMovementResponse> Handle(GetCurrentMovementQuery request, CancellationToken cancellationToken)
     {
+        Expression<Func<CurrentMovement, bool>>? predicate = x => x.Id > 0;
         if (request.Id != null)
         {
             predicate = predicate.And(x => x.Id == request.Id);
         }
-        return await GetAsync<GetCurrentMovementResponse>(cancellationToken: cancellationToken);
+        return await GetAsync<GetCurrentMovementResponse>(predicate, cancellationToken: cancellationToken);
     }
 }

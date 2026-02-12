@@ -16,9 +16,7 @@ public class BaseHandlerManager<T> where T : Entity
 {
     public IRepositoryAsync<T> _repository;
     public IMapper _mapper;
-    public Expression<Func<T, bool>> predicate = x => x.Id != null;
-    public Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null;
-    public Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null;
+
     public BaseHandlerManager(IRepositoryAsync<T> repository, IMapper mapper)
     {
         _repository = repository;
@@ -51,7 +49,7 @@ public class BaseHandlerManager<T> where T : Entity
         return response;
     }
 
-    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
+    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, Expression<Func<T, bool>>? predicate = null,Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         Paginate<T> entites = await _repository.GetListAsync(predicate: predicate,
                                                              orderBy: orderBy,
@@ -66,7 +64,7 @@ public class BaseHandlerManager<T> where T : Entity
         return response;
     }
 
-    public async Task<TResponse> GetAsync<TResponse>(bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
+    public async Task<TResponse> GetAsync<TResponse>(Expression<Func<T, bool>> predicate,  Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         var entity = await _repository.GetAsync(predicate, include, withDeleted, enableTracking, cancellationToken);
         TResponse response = _mapper.Map<TResponse>(entity);

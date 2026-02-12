@@ -7,6 +7,7 @@ using Domain.Entities.Finance;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Application.Features.Finance.CurrentAccounts.Queries.Get;
@@ -21,10 +22,11 @@ public class GetCurrentAccountQueryHandler:BaseHandlerManager<CurrentAccount>,IR
     }
     public async Task<GetCurrentAccountResponse> Handle(GetCurrentAccountQuery request, CancellationToken cancellationToken)
     {
+        Expression<Func<CurrentAccount, bool>>? predicate = x => x.Id > 0;
         if (request.Id != null)
         {
             predicate = predicate.And(x => x.Id == request.Id);
         }
-        return await GetAsync<GetCurrentAccountResponse>(cancellationToken: cancellationToken);
+        return await GetAsync<GetCurrentAccountResponse>(predicate,cancellationToken: cancellationToken);
     }
 }

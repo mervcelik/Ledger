@@ -13,9 +13,9 @@ using System.Text;
 
 namespace Application.Features.Finance.CurrentMovements.Profiles;
 
-public class MappingProfile : Profile
+public class MappingProfiles : Profile
 {
-    public MappingProfile()
+    public MappingProfiles()
     {
         CreateMap<CurrentMovement, CreateCurrentMovementCommand>().ReverseMap();
         CreateMap<CurrentMovement, CreatedCurrentMovementResponse>().ReverseMap();

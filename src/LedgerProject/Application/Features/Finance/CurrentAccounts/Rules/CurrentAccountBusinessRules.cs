@@ -8,10 +8,10 @@ using System.Text;
 
 namespace Application.Features.Finance.CurrentAccounts.Rules;
 
-public class CurrentAccountRules
+public class CurrentAccountBusinessRules
 {
     ICurrentAccountRepository _currentAccountRepository;
-    public CurrentAccountRules(ICurrentAccountRepository currentAccountRepository)
+    public CurrentAccountBusinessRules(ICurrentAccountRepository currentAccountRepository)
     {
         _currentAccountRepository = currentAccountRepository;
     }
