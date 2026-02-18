@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Dtos;
+using Core.CrossCuttingConcerns.Exceptions.Types;
 using Core.Persistence.Entities;
 using Core.Persistence.Paging;
 using Core.Persistence.Repositories;
@@ -27,6 +28,11 @@ public class BaseHandlerManager<T> where T : Entity
     public async Task<TResponse> DeleteAsync<TResponse>(BaseCommandDto dto, bool permanent, CancellationToken cancellationToken)
     {
         var entity = await _repository.GetAsync(predicate: b => b.Id == dto.Id, cancellationToken: cancellationToken);
+        if (entity == null)
+        {
+            throw new NotFoundException($"{typeof(T).Name} not found.");
+        }
+
         await _repository.DeleteAsync(entity, permanent);
         TResponse response = _mapper.Map<TResponse>(entity);
         return response;
@@ -42,14 +48,19 @@ public class BaseHandlerManager<T> where T : Entity
 
     public async Task<TResponse> UpdateAsync<TResponse>(BaseCommandDto dto, CancellationToken cancellationToken)
     {
-        var entity = await _repository.GetAsync(predicate: b => b.Id == dto.Id, cancellationToken: cancellationToken,enableTracking:false);
+        var entity = await _repository.GetAsync(predicate: b => b.Id == dto.Id, cancellationToken: cancellationToken, enableTracking: false);
+        if (entity == null)
+        {
+            throw new NotFoundException($"{typeof(T).Name} not found.");
+        }
+
         _mapper.Map(dto, entity);
         await _repository.UpdateAsync(entity);
         TResponse response = _mapper.Map<TResponse>(entity);
         return response;
     }
 
-    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, Expression<Func<T, bool>>? predicate = null,Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
+    public async Task<GetListResponse<TResponse>> GetListAsync<TResponse>(BaseListQueryDto dto, Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         Paginate<T> entites = await _repository.GetListAsync(predicate: predicate,
                                                              orderBy: orderBy,
@@ -64,9 +75,14 @@ public class BaseHandlerManager<T> where T : Entity
         return response;
     }
 
-    public async Task<TResponse> GetAsync<TResponse>(Expression<Func<T, bool>> predicate,  Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
+    public async Task<TResponse> GetAsync<TResponse>(Expression<Func<T, bool>> predicate, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, bool withDeleted = false, bool enableTracking = false, CancellationToken cancellationToken = default)
     {
         var entity = await _repository.GetAsync(predicate, include, withDeleted, enableTracking, cancellationToken);
+        if (entity == null)
+        {
+            throw new NotFoundException($"{typeof(T).Name} not found.");
+        }
+
         TResponse response = _mapper.Map<TResponse>(entity);
         return response;
     }

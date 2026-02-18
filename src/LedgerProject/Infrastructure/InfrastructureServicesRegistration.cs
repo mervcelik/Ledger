@@ -1,5 +1,7 @@
 ﻿using Application.Services.Localization;
 using Core.CrossCuttingConcerns.Exceptions.Handlers;
+using Core.Security.Hashing;
+using Core.Security.JWT;
 using Infrastructure.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +18,9 @@ public static class InfrastructureServicesRegistration
 
         services.AddLocalization();
         services.AddScoped<ILocalizationService, ResourceLocalizationService>();
+        
+        services.AddScoped<IHashingService, HashingService>();
+        services.AddScoped<ITokenHelper, JwtHelper>();
 
         return services; 
     }

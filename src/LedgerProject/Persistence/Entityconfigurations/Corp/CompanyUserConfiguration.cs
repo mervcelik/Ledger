@@ -20,7 +20,14 @@ public class CompanyUserConfiguration : IEntityTypeConfiguration<CompanyUser>
 
         builder.HasQueryFilter(x => !x.DeletedDate.HasValue);
 
-        //builder.HasOne(x => x.User).WithMany(x => x.CompanyUsers).HasForeignKey(x => x.UserId);
-        //builder.HasOne(x => x.Company).WithMany(x => x.CompanyUsers).HasForeignKey(x => x.CompanyId);
+        builder.HasOne(x => x.User)
+            .WithMany(x => x.CompanyUsers)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+            
+        builder.HasOne(x => x.Company)
+            .WithMany(x => x.CompanyUsers)
+            .HasForeignKey(x => x.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

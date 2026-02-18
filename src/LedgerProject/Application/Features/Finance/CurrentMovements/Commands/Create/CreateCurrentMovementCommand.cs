@@ -36,6 +36,14 @@ public class CreateCurrentMovementCommandHandler : BaseHandlerManager<CurrentMov
     }
     public async Task<CreatedCurrentMovementResponse> Handle(CreateCurrentMovementCommand request, CancellationToken cancellationToken)
     {
+        // Business Rules Validations
+        await _currentMovementRules.CompanyMustExist(request.CompanyId);
+        await _currentMovementRules.CurrentAccountMustExist(request.CurrentAccountId);
+        await _currentMovementRules.AccountingPeriodMustExist(request.AccountingPeriodId);
+        await _currentMovementRules.AccountingPeriodMustNotBeClosed(request.AccountingPeriodId);
+        await _currentMovementRules.MovementTypeMustExist(request.MovementTypeId);
+        await _currentMovementRules.DateMustBeWithinAccountingPeriod(request.Date, request.AccountingPeriodId);
+
         return await CreateAsync<CreatedCurrentMovementResponse>(request, cancellationToken);
     }
 }

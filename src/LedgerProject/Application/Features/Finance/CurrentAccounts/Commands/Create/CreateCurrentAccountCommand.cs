@@ -30,7 +30,9 @@ public class CreateCurrentAccountCommandHandler : BaseHandlerManager<CurrentAcco
     }
     public async Task<CreatedCurrentAccountResponse> Handle(CreateCurrentAccountCommand request, CancellationToken cancellationToken)
     {
+        await _currentAccountRules.CompanyMustExist(request.CompanyId);
         await _currentAccountRules.CurrentAccountNameCanNotBeDuplicatedWhenInserted(request.Name, request.CompanyId);
+        await _currentAccountRules.TaxNumberMustBeUnique(request.TaxNumber, request.CompanyId);
         return await CreateAsync<CreatedCurrentAccountResponse>(request, cancellationToken);
     }
 }

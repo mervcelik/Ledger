@@ -1,4 +1,5 @@
-﻿using Application.Repositories.Finance;
+﻿using Application.Features.Finance.CurrentAccounts.Rules;
+using Application.Repositories.Finance;
 using AutoMapper;
 using Core.Application.Dtos;
 using Core.Application.Managers;
@@ -21,12 +22,16 @@ public class UpdateCurrentAccountCommand : BaseCommandDto, IRequest<UpdatedCurre
 
 public class UpdateCurrentAccountCommandHandler : BaseHandlerManager<CurrentAccount> ,IRequestHandler<UpdateCurrentAccountCommand, UpdatedCurrentAccountResponse>
 {
-    public UpdateCurrentAccountCommandHandler(ICurrentAccountRepository currentAccountRepository, IMapper mapper) : base(currentAccountRepository, mapper)
+    CurrentAccountBusinessRules _currentAccountRules;
+    
+    public UpdateCurrentAccountCommandHandler(ICurrentAccountRepository currentAccountRepository, IMapper mapper, CurrentAccountBusinessRules currentAccountRules) : base(currentAccountRepository, mapper)
     {
-
+        _currentAccountRules = currentAccountRules;
     }
+    
     public async Task<UpdatedCurrentAccountResponse> Handle(UpdateCurrentAccountCommand request, CancellationToken cancellationToken)
     {
+        await _currentAccountRules.TaxNumberMustBeUnique(request.TaxNumber, 0, request.Id);
         return await UpdateAsync<UpdatedCurrentAccountResponse>(request, cancellationToken);
     }
 }

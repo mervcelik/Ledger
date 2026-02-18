@@ -1,8 +1,13 @@
 ﻿using Application.Features.Corp.Companies.Rules;
+using Application.Features.Corp.CompanyUsers.Rules;
 using Application.Features.Finance.AccountingPeriods.Rules;
 using Application.Features.Finance.CurrentAccounts.Rules;
 using Application.Features.Finance.CurrentMovementDetails.Rules;
 using Application.Features.Finance.CurrentMovements.Rules;
+using Application.Features.Finance.MovementTypes.Rules;
+using Application.Features.Identity.OperationClaims.Rules;
+using Application.Features.Identity.UserOperationClaims.Rules;
+using Application.Features.Identity.UserSessions.Rules;
 using Core.Application.Piplines.Validation;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,11 +26,17 @@ public static class ApplicationServiceRegistration
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddTransient<CompanyBusinessRules>();
+        services.AddTransient<CompanyUserBusinessRules>();
 
         services.AddTransient<AccountingPeriodBusinessRules>();
         services.AddTransient<CurrentAccountBusinessRules>();
         services.AddTransient<CurrentMovementBusinessRules>();
         services.AddTransient<CurrentMovementDetailRules>();
+        services.AddTransient<MovementTypeBusinessRules>();
+
+        services.AddTransient<OperationClaimBusinessRules>();
+        services.AddTransient<UserOperationClaimBusinessRules>();
+        services.AddTransient<UserSessionBusinessRules>();
 
         services.AddMediatR(configuration =>
         {

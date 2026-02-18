@@ -156,4 +156,106 @@
   <data name="CA.CompanyIdNotNull" xml:space="preserve">
     <value>Şirket seçiniz</value>
   </data>
+  <data name="CA.CompanyMustExist" xml:space="preserve">
+    <value>Seçilen şirket bulunamadı.</value>
+  </data>
+  <data name="CA.TaxNumberMustBeUnique" xml:space="preserve">
+    <value>Bu vergi numarasında zaten bir cari kayıt mevcut.</value>
+  </data>
+  <data name="CompanyUser.NotUnique" xml:space="preserve">
+    <value>Bu kullanıcı zaten bu şirkete atanmış.</value>
+  </data>
+  <data name="CompanyUser.IdGreaterThanZero" xml:space="preserve">
+    <value>Geçerli bir şirket kullanıcısı seçiniz.</value>
+  </data>
+  <data name="CompanyUser.UserIdNotEmpty" xml:space="preserve">
+    <value>Kullanıcı seçiniz.</value>
+  </data>
+  <data name="CompanyUser.CompanyIdNotEmpty" xml:space="preserve">
+    <value>Şirket seçiniz.</value>
+  </data>
+  <data name="CompanyUser.CompanyMustExist" xml:space="preserve">
+    <value>Seçilen şirket bulunamadı.</value>
+  </data>
+  <data name="CompanyUser.UserMustExist" xml:space="preserve">
+    <value>Seçilen kullanıcı bulunamadı.</value>
+  </data>
+  <data name="CurrentMovement.CurrentAccountMustExist" xml:space="preserve">
+    <value>Seçilen cari hesap bulunamadı.</value>
+  </data>
+  <data name="CurrentMovement.AccountingPeriodMustExist" xml:space="preserve">
+    <value>Seçilen muhasebe dönemi bulunamadı.</value>
+  </data>
+  <data name="CurrentMovement.AccountingPeriodMustNotBeClosed" xml:space="preserve">
+    <value>Muhasebe dönemi kapatılmış, hareket eklenemez.</value>
+  </data>
+  <data name="CurrentMovement.MovementTypeMustExist" xml:space="preserve">
+    <value>Seçilen hareket türü bulunamadı.</value>
+  </data>
+  <data name="CurrentMovement.CompanyMustExist" xml:space="preserve">
+    <value>Seçilen şirket bulunamadı.</value>
+  </data>
+  <data name="CurrentMovement.DateMustBeWithinAccountingPeriod" xml:space="preserve">
+    <value>Hareket tarihi muhasebe döneminin tarih aralığında olmalıdır.</value>
+  </data>
+  <data name="CurrentMovementDetail.CurrentMovementMustExist" xml:space="preserve">
+    <value>Seçilen hareket bulunamadı.</value>
+  </data>
+  <data name="CurrentMovementDetail.QuantityMustBeGreaterThanZero" xml:space="preserve">
+    <value>Miktar sıfırdan büyük olmalıdır.</value>
+  </data>
+  <data name="CurrentMovementDetail.AmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Tutar sıfırdan büyük olmalıdır.</value>
+  </data>
+  <data name="CurrentMovementDetail.TaxPercentMustBeValid" xml:space="preserve">
+    <value>Vergi oranı 0 ile 100 arasında olmalıdır.</value>
+  </data>
+  <data name="CurrentMovementDetail.TotalAmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Toplam tutar sıfırdan büyük olmalıdır.</value>
+  </data>
+  <data name="MovementType.NameCanNotBeDuplicated" xml:space="preserve">
+    <value>Aynı isimde bir hareket türü zaten mevcut.</value>
+  </data>
+  <data name="MovementType.NameCannotBeEmpty" xml:space="preserve">
+    <value>Hareket türü adı boş olamaz.</value>
+  </data>
+  <data name="MovementType.CompanyMustExist" xml:space="preserve">
+    <value>Seçilen şirket bulunamadı.</value>
+  </data>
+  <data name="MovementType.IdGreaterThanZero" xml:space="preserve">
+    <value>Geçerli bir hareket türü seçiniz.</value>
+  </data>
+  <data name="User.IdGreaterThanZero" xml:space="preserve">
+    <value>Geçerli bir kullanıcı seçiniz.</value>
+  </data>
+  <data name="User.FirstNameNotEmpty" xml:space="preserve">
+    <value>Kullanıcı adı boş olamaz.</value>
+  </data>
+  <data name="User.FirstNameMinLength" xml:space="preserve">
+    <value>Kullanıcı adı en az 2 karakter olmalıdır.</value>
+  </data>
+  <data name="User.LastNameNotEmpty" xml:space="preserve">
+    <value>Kullanıcı soyadı boş olamaz.</value>
+  </data>
+  <data name="User.LastNameMinLength" xml:space="preserve">
+    <value>Kullanıcı soyadı en az 2 karakter olmalıdır.</value>
+  </data>
+  <data name="User.UserNameNotEmpty" xml:space="preserve">
+    <value>Kullanıcı adı boş olamaz.</value>
+  </data>
+  <data name="User.UserNameMinLength" xml:space="preserve">
+    <value>Kullanıcı adı en az 3 karakter olmalıdır.</value>
+  </data>
+  <data name="User.PasswordNotEmpty" xml:space="preserve">
+    <value>Şifre boş olamaz.</value>
+  </data>
+  <data name="User.PasswordMinLength" xml:space="preserve">
+    <value>Şifre en az 8 karakter olmalıdır.</value>
+  </data>
+  <data name="SessionNotFound" xml:space="preserve">
+    <value>Oturum bulunamadı.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Kullanıcı bulunamadı</value>
+  </data>
 </root>

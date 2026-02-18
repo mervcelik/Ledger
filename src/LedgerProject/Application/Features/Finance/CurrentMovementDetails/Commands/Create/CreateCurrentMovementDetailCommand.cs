@@ -1,4 +1,5 @@
-﻿using Application.Repositories.Finance;
+﻿using Application.Features.Finance.CurrentMovementDetails.Rules;
+using Application.Repositories.Finance;
 using AutoMapper;
 using Core.Application.Dtos;
 using Core.Application.Managers;
@@ -21,12 +22,18 @@ public class CreateCurrentMovementDetailCommand:BaseCommandDto,IRequest<CreatedC
 }
 public class CreateCurrentMovementDetailCommandHandler :BaseHandlerManager<CurrentMovementDetail>,IRequestHandler<CreateCurrentMovementDetailCommand, CreatedCurrentMovementDetailResponse>
 {
-    public CreateCurrentMovementDetailCommandHandler(IMapper mapper,ICurrentMovementDetailRepository currentMovementDetailRepository):base(currentMovementDetailRepository,mapper)
+    private readonly CurrentMovementDetailRules _currentMovementDetailRules;
+
+    public CreateCurrentMovementDetailCommandHandler(IMapper mapper, ICurrentMovementDetailRepository currentMovementDetailRepository, CurrentMovementDetailRules currentMovementDetailRules):base(currentMovementDetailRepository,mapper)
     {
-        
+        _currentMovementDetailRules = currentMovementDetailRules;
     }
     public async Task<CreatedCurrentMovementDetailResponse> Handle(CreateCurrentMovementDetailCommand request, CancellationToken cancellationToken)
     {
+        // Business Rules Validations
+        await _currentMovementDetailRules.CurrentMovementMustExist(request.CurrentMovementId);
+
         return await CreateAsync<CreatedCurrentMovementDetailResponse>(request, cancellationToken);
     }
 }
+

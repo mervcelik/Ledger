@@ -156,4 +156,106 @@
   <data name="CA.CompanyIdNotNull" xml:space="preserve">
     <value>Company must be select</value>
   </data>
+  <data name="CA.CompanyMustExist" xml:space="preserve">
+    <value>The selected company was not found.</value>
+  </data>
+  <data name="CA.TaxNumberMustBeUnique" xml:space="preserve">
+    <value>A current registration with this tax number already exists.</value>
+  </data>
+  <data name="CompanyUser.NotUnique" xml:space="preserve">
+    <value>This user is already assigned to this company.</value>
+  </data>
+  <data name="CompanyUser.IdGreaterThanZero" xml:space="preserve">
+    <value>Please select a valid company user.</value>
+  </data>
+  <data name="CompanyUser.UserIdNotEmpty" xml:space="preserve">
+    <value>Please select a user.</value>
+  </data>
+  <data name="CompanyUser.CompanyIdNotEmpty" xml:space="preserve">
+    <value>Please select a company.</value>
+  </data>
+  <data name="CompanyUser.CompanyMustExist" xml:space="preserve">
+    <value>The selected company was not found.</value>
+  </data>
+  <data name="CompanyUser.UserMustExist" xml:space="preserve">
+    <value>The selected user was not found.</value>
+  </data>
+  <data name="CurrentMovement.CurrentAccountMustExist" xml:space="preserve">
+    <value>The selected current account was not found.</value>
+  </data>
+  <data name="CurrentMovement.AccountingPeriodMustExist" xml:space="preserve">
+    <value>The selected accounting period was not found.</value>
+  </data>
+  <data name="CurrentMovement.AccountingPeriodMustNotBeClosed" xml:space="preserve">
+    <value>The accounting period is closed, no movement can be added.</value>
+  </data>
+  <data name="CurrentMovement.MovementTypeMustExist" xml:space="preserve">
+    <value>The selected movement type was not found.</value>
+  </data>
+  <data name="CurrentMovement.CompanyMustExist" xml:space="preserve">
+    <value>The selected company was not found.</value>
+  </data>
+  <data name="CurrentMovement.DateMustBeWithinAccountingPeriod" xml:space="preserve">
+    <value>The movement date must be within the accounting period date range.</value>
+  </data>
+  <data name="CurrentMovementDetail.CurrentMovementMustExist" xml:space="preserve">
+    <value>The selected movement was not found.</value>
+  </data>
+  <data name="CurrentMovementDetail.QuantityMustBeGreaterThanZero" xml:space="preserve">
+    <value>Quantity must be greater than zero.</value>
+  </data>
+  <data name="CurrentMovementDetail.AmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Amount must be greater than zero.</value>
+  </data>
+  <data name="CurrentMovementDetail.TaxPercentMustBeValid" xml:space="preserve">
+    <value>Tax rate must be between 0 and 100.</value>
+  </data>
+  <data name="CurrentMovementDetail.TotalAmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Total amount must be greater than zero.</value>
+  </data>
+  <data name="MovementType.NameCanNotBeDuplicated" xml:space="preserve">
+    <value>A movement type with this name already exists.</value>
+  </data>
+  <data name="MovementType.NameCannotBeEmpty" xml:space="preserve">
+    <value>Movement type name cannot be empty.</value>
+  </data>
+  <data name="MovementType.CompanyMustExist" xml:space="preserve">
+    <value>The selected company was not found.</value>
+  </data>
+  <data name="MovementType.IdGreaterThanZero" xml:space="preserve">
+    <value>Please select a valid movement type.</value>
+  </data>
+  <data name="User.IdGreaterThanZero" xml:space="preserve">
+    <value>Please select a valid user.</value>
+  </data>
+  <data name="User.FirstNameNotEmpty" xml:space="preserve">
+    <value>User first name cannot be empty.</value>
+  </data>
+  <data name="User.FirstNameMinLength" xml:space="preserve">
+    <value>User first name must be at least 2 characters.</value>
+  </data>
+  <data name="User.LastNameNotEmpty" xml:space="preserve">
+    <value>User last name cannot be empty.</value>
+  </data>
+  <data name="User.LastNameMinLength" xml:space="preserve">
+    <value>User last name must be at least 2 characters.</value>
+  </data>
+  <data name="User.UserNameNotEmpty" xml:space="preserve">
+    <value>User name cannot be empty.</value>
+  </data>
+  <data name="User.UserNameMinLength" xml:space="preserve">
+    <value>User name must be at least 3 characters.</value>
+  </data>
+  <data name="User.PasswordNotEmpty" xml:space="preserve">
+    <value>Password cannot be empty.</value>
+  </data>
+  <data name="User.PasswordMinLength" xml:space="preserve">
+    <value>Password must be at least 8 characters.</value>
+  </data>
+  <data name="SessionNotFound" xml:space="preserve">
+    <value>Session Not Found</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Invalid User Name</value>
+  </data>
 </root>

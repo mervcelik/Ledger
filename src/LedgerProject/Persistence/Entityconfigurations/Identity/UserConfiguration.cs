@@ -23,33 +23,46 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasQueryFilter(u => !u.DeletedDate.HasValue);
 
-        builder.HasMany(u => u.UserOperationClaims);
+        builder.HasMany(u => u.UserOperationClaims)
+            .WithOne(uoc => uoc.User)
+            .HasForeignKey(uoc => uoc.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
-       // builder.HasData(getSeeds());
+        builder.HasMany(u => u.UserSessions)
+            .WithOne(us => us.User)
+            .HasForeignKey(us => us.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(u => u.CompanyUsers)
+            .WithOne(cu => cu.User)
+            .HasForeignKey(cu => cu.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        //builder.HasData(getSeeds());
     }
 
-    private IEnumerable<User> getSeeds()
-    {
-        List<User> users = new();
+    //private IEnumerable<User> getSeeds()
+    //{
+    //    List<User> users = new();
 
-        HashingHelper.CreatePasswordHash(
-            password: "Passw0rd",
-            passwordHash: out byte[] passwordHash,
-            passwordSalt: out byte[] passwordSalt
-        );
-        User adminUser =
-            new()
-            {
-                Id = 1,
-                FirstName = "Admin",
-                LastName = "Admin",
-                UserName = "admin",
-                Status = true,
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
-            };
-        users.Add(adminUser);
+    //    HashingHelper.CreatePasswordHash(
+    //        password: "Passw0rd",
+    //        passwordHash: out byte[] passwordHash,
+    //        passwordSalt: out byte[] passwordSalt
+    //    );
+    //    User adminUser =
+    //        new()
+    //        {
+    //            Id = 1,
+    //            FirstName = "Admin",
+    //            LastName = "Admin",
+    //            UserName = "admin",
+    //            Status = true,
+    //            PasswordHash = passwordHash,
+    //            PasswordSalt = passwordSalt
+    //        };
+    //    users.Add(adminUser);
 
-        return users.ToArray();
-    }
+    //    return users.ToArray();
+    //}
 }

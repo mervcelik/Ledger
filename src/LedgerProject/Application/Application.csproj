@@ -8,17 +8,14 @@
 
   <ItemGroup>
     <Compile Remove="Features\Auth\Commands\**" />
-    <Compile Remove="Features\Auth\Constans\**" />
     <Compile Remove="Features\Auth\Profiles\**" />
     <Compile Remove="Features\Auth\Queries\**" />
     <Compile Remove="Features\Auth\Rules\**" />
     <EmbeddedResource Remove="Features\Auth\Commands\**" />
-    <EmbeddedResource Remove="Features\Auth\Constans\**" />
     <EmbeddedResource Remove="Features\Auth\Profiles\**" />
     <EmbeddedResource Remove="Features\Auth\Queries\**" />
     <EmbeddedResource Remove="Features\Auth\Rules\**" />
     <None Remove="Features\Auth\Commands\**" />
-    <None Remove="Features\Auth\Constans\**" />
     <None Remove="Features\Auth\Profiles\**" />
     <None Remove="Features\Auth\Queries\**" />
     <None Remove="Features\Auth\Rules\**" />
@@ -34,6 +31,7 @@
     <ProjectReference Include="..\..\core.Package\Core.Application\Core.Application.csproj" />
     <ProjectReference Include="..\..\core.Package\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj" />
     <ProjectReference Include="..\..\core.Package\Core.Persistence\Core.Persistence.csproj" />
+        <ProjectReference Include="..\..\core.Package\Core.Security\Core.Security.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
@@ -58,4 +56,11 @@
     <PackageReference Include="MediatR" Version="14.0.0" />
   </ItemGroup>
 
-</Project>
+  <ItemGroup>
+    <Compile Include="Features\Auth\Commands\Logout\LoggedOutResponse.cs" />
+    <Compile Include="Features\Auth\Commands\Logout\LogoutCommand.cs" />
+    <Compile Include="Features\Auth\Commands\Logout\LogoutCommandValidator.cs" />
+  </ItemGroup>  <ItemGroup>
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup></Project>
+
